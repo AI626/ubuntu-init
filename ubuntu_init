@@ -1,0 +1,27 @@
+#安装ssh服务
+sudo apt-get install openssh-server -y
+#启动ssh服务
+sudo /etc/init.d/ssh start
+#设置开机自启动
+sudo systemctl enable ssh
+
+
+sudo gedit /etc/ssh/sshd_config
+
+#找到并用#注释掉这行：PermitRootLogin prohibit-password
+
+#新建一行 添加：PermitRootLogin yes
+
+#重启服务
+
+sudo service ssh restart
+
+sudo passwd root   #设置密码
+
+
+
+#安装zerotier
+
+sudo apt-get install curl -y
+curl -s https://install.zerotier.com | sudo bash
+sudo zerotier-cli join a84ac5c10a51e6e1
